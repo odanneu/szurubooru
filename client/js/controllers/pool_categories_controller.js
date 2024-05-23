@@ -12,13 +12,13 @@ class PoolCategoriesController {
         if (!api.hasPrivilege("poolCategories:list")) {
             this._view = new EmptyView();
             this._view.showError(
-                "You don't have privileges to view pool categories."
+                "풀 카테고리를 볼 권한이 없습니다."
             );
             return;
         }
 
         topNavigation.activate("pools");
-        topNavigation.setTitle("Listing pools");
+        topNavigation.setTitle("풀 목록");
         PoolCategoryList.get().then(
             (response) => {
                 this._poolCategories = response.results;
@@ -52,7 +52,7 @@ class PoolCategoriesController {
             () => {
                 pools.refreshCategoryColorMap();
                 this._view.enableForm();
-                this._view.showSuccess("Changes saved.");
+                this._view.showSuccess("변경 저장됨.");
             },
             (error) => {
                 this._view.enableForm();
