@@ -3,11 +3,11 @@
         <div class='dropper-container'></div>
 
         <div class='control-strip'>
-            <input type='submit' value='Upload all' class='submit'/>
+            <input type='submit' value='모두 업로드' class='submit'/>
 
             <span class='skip-duplicates'>
                 <%= ctx.makeCheckbox({
-                    text: 'Skip duplicate',
+                    text: '중복 건너뛰기',
                     name: 'skip-duplicates',
                     checked: false,
                 }) %>
@@ -15,7 +15,7 @@
 
             <span class='always-upload-similar'>
                 <%= ctx.makeCheckbox({
-                    text: 'Force upload similar',
+                    text: '항상 비슷한 짤 업로드r',
                     name: 'always-upload-similar',
                     checked: false,
                 }) %>
@@ -23,13 +23,13 @@
 
             <span class='pause-remain-on-error'>
                 <%= ctx.makeCheckbox({
-                    text: 'Pause on error',
+                    text: '오류시 멈춤',
                     name: 'pause-remain-on-error',
                     checked: true,
                 }) %>
             </span>
 
-            <input type='button' value='Cancel' class='cancel'/>
+            <input type='button' value='취소' class='cancel'/>
         </div>
 
         <div class='messages'></div>
