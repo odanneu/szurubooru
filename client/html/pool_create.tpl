@@ -26,7 +26,7 @@
                 <%= ctx.makeTextInput({
                     text: 'Posts',
                     value: '',
-                    placeholder: 'space-separated post IDs',
+                    placeholder: '띄어쓰기로 포스트 ID 구분',
                 }) %>
             </li>
         </ul>
@@ -35,7 +35,7 @@
             <div class='messages'></div>
 
             <div class='buttons'>
-                <input type='submit' class='save' value='Create pool'>
+                <input type='submit' class='save' value='풀 만들기'>
             </div>
         <% } %>
     </form>
