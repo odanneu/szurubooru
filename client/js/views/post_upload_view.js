@@ -51,11 +51,11 @@ class Uploadable extends events.EventTarget {
     }
 
     get key() {
-        throw new Error("Not implemented");
+        throw new Error("구현되지 않음");
     }
 
     get name() {
-        throw new Error("Not implemented");
+        throw new Error("구현되지 않음");
     }
 }
 
@@ -165,7 +165,7 @@ class PostUploadView extends events.EventTarget {
             this._contentInputNode,
             {
                 extraText:
-                    "Allowed extensions: .jpg, .png, .gif, .webm, .mp4, .swf, .avif, .heif, .heic",
+                    "허용된 확장자: .jpg, .png, .gif, .webm, .mp4, .swf, .avif, .heif, .heic",
                 allowUrls: true,
                 allowMultiple: true,
                 lock: false,
@@ -239,12 +239,12 @@ class PostUploadView extends events.EventTarget {
             let message = null;
             if (duplicatesFound < uploadables.length) {
                 message =
-                    "Some of the files were already added " +
-                    "and have been skipped.";
+                    "일부 파일이 이미 추가되어 있어 " +
+                    "스킵되었습니다.";
             } else if (duplicatesFound === 1) {
-                message = "This file was already added.";
+                message = "이 파일은 이미 추가되어 있습니다.";
             } else {
-                message = "These files were already added.";
+                message = "이 파일들은 이미 추가되어 있습니다.";
             }
             alert(message);
         }
@@ -260,7 +260,7 @@ class PostUploadView extends events.EventTarget {
         this._emit("change");
         if (!this._uploadables.length) {
             this._formNode.classList.add("inactive");
-            this._submitButtonNode.value = "Upload all";
+            this._submitButtonNode.value = "모두 업로드";
         }
     }
 
@@ -287,7 +287,7 @@ class PostUploadView extends events.EventTarget {
         for (let uploadable of this._uploadables) {
             this._updateUploadableFromDom(uploadable);
         }
-        this._submitButtonNode.value = "Resume";
+        this._submitButtonNode.value = "업로드 계속";
         this._emit("submit");
     }
 
