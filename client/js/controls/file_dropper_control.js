@@ -19,7 +19,7 @@ class FileDropperControl extends events.EventTarget {
             lock: options.lock,
             id: "file-" + Math.random().toString(36).substring(7),
             urlPlaceholder:
-                options.urlPlaceholder || "Alternatively, paste an URL here.",
+                options.urlPlaceholder || "또는 URL을 여기에 붙여넣기",
         });
 
         this._dropperNode = source.querySelector(".file-dropper");
@@ -88,7 +88,7 @@ class FileDropperControl extends events.EventTarget {
                 return;
             }
             if (!url.match(/^https?:\/\/[^.]+\..+$/)) {
-                window.alert(`"${url}" does not look like a valid URL.`);
+                window.alert(`"${url}" 는 올바른 URL이 아닌 것 같습니다.`);
                 return;
             }
         }
