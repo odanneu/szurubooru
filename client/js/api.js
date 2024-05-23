@@ -27,12 +27,12 @@ class Api extends events.EventTarget {
             "nobody",
         ];
         this.rankNames = new Map([
-            ["anonymous", "Anonymous"],
-            ["restricted", "Restricted user"],
-            ["regular", "Regular user"],
-            ["power", "Power user"],
-            ["moderator", "Moderator"],
-            ["administrator", "Administrator"],
+            ["anonymous", "익명"],
+            ["restricted", "제한 사용자"],
+            ["regular", "일반 사용자"],
+            ["power", "쩜붕이"],
+            ["moderator", "관리자"],
+            ["administrator", "운영자"],
             ["nobody", "Nobody"],
         ]);
     }
@@ -167,7 +167,7 @@ class Api extends events.EventTarget {
     createToken(userName, options) {
         let userTokenRequest = {
             enabled: true,
-            note: "Web Login Token",
+            note: "웹 로그인 토큰",
         };
         if (typeof options.expires !== "undefined") {
             userTokenRequest.expirationTime = new Date()
@@ -341,8 +341,8 @@ class Api extends events.EventTarget {
                         fileTokens[fileId] = null;
                     }
                     error.message =
-                        "The uploaded file has expired; " +
-                        "please resend the form to reupload.";
+                        "업로드된 파일이 만료되었습니다. " +
+                        "다시 업로드하기 위해 재전송해주세요.";
                 }
                 return Promise.reject(error);
             });
@@ -429,7 +429,7 @@ class Api extends events.EventTarget {
                 }
             } catch (e) {
                 reject(
-                    new Error("Authentication error (malformed credentials)")
+                    new Error("인증 에러 (잘못된 형식의 자격 증명)")
                 );
             }
 
@@ -441,7 +441,7 @@ class Api extends events.EventTarget {
                 req.abort(); // does *NOT* call the callback passed in .end()
                 progress.done();
                 reject(
-                    new Error("The request was aborted due to user cancel.")
+                    new Error("유저가 요청을 취소하여 중지됨.")
                 );
             };
 
@@ -451,7 +451,7 @@ class Api extends events.EventTarget {
                 if (error) {
                     if (response && response.body) {
                         error = new Error(
-                            response.body.description || "Unknown error"
+                            response.body.description || "알 수 없는 오류"
                         );
                         error.response = response.body;
                     }
