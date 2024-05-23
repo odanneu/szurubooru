@@ -8,14 +8,14 @@
 
         <div class='buttons'>
             <input type='submit' value='Search'/>
-            <a class='button append' href='<%- ctx.formatClientLink('help', 'search', 'pools') %>'>Syntax help</a>
+            <a class='button append' href='<%- ctx.formatClientLink('help', 'search', 'pools') %>'>문법 도움말</a>
 
             <% if (ctx.canCreate) { %>
-                <a class='append' href='<%- ctx.formatClientLink('pool', 'create') %>'>Add new pool</a>
+                <a class='append' href='<%- ctx.formatClientLink('pool', 'create') %>'>새 풀 만들기</a>
             <% } %>
 
             <% if (ctx.canEditPoolCategories) { %>
-                <a class='append' href='<%- ctx.formatClientLink('pool-categories') %>'>Pool categories</a>
+                <a class='append' href='<%- ctx.formatClientLink('pool-categories') %>'>풀 카테고리</a>
             <% } %>
         </div>
     </form>
