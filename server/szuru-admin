@@ -21,15 +21,15 @@ from szurubooru.func import users as userfuncs
 def reset_password(username: str) -> None:
     user = userfuncs.get_user_by_name_or_email(username)
 
-    new_password = getpass("Enter new password for '%s': " % user.name)
-    check_password = getpass("Re-enter password: ")
+    new_password = getpass("'%s'의 새 비밀번호를 입력하세요 : " % user.name)
+    check_password = getpass("비밀번호를 다시 입력하세요: ")
 
     if check_password != new_password:
-        raise errors.ValidationError("Passwords do not match")
+        raise errors.ValidationError("비밀번호가 일치하지 않습니다")
 
     userfuncs.update_user_password(user, new_password)
     db.get_session().commit()
-    print("Sucessfully changed password for '%s'" % user.name)
+    print("'%s'의 비밀번호를 성공적으로 교체했습니다." % user.name)
 
 
 def check_audio() -> None:
@@ -41,7 +41,7 @@ def check_audio() -> None:
     )
 
     for post in post_list:
-        print("Checking post %d ..." % post.post_id, end="\r", file=stderr)
+        print("%d 포스트 확인 중 ..." % post.post_id, end="\r", file=stderr)
         content = files.get(postfuncs.get_post_content_path(post))
 
         has_existing_flag = model.Post.FLAG_SOUND in post.flags
@@ -49,14 +49,14 @@ def check_audio() -> None:
             has_sound_data = images.Image(content).check_for_sound()
         except errors.ProcessingError:
             print(
-                "Post %d caused an error when checking for sound"
+                "%d 번 포스트가 사운드를 체크할 때 오류를 일으켰습니다"
                 % post.post_id
             )
 
         if has_sound_data and not has_existing_flag:
-            print("Post %d has sound data but is not flagged" % post.post_id)
+            print("%d 번 포스트가 사운드는 있으나 플레그가 없습니다" % post.post_id)
         if not has_sound_data and has_existing_flag:
-            print("Post %d has no sound data but is flagged" % post.post_id)
+            print("%d 번 포스트가 플레그가 있으나 사운드가 없습니다" % post.post_id)
 
 
 def reset_filenames() -> None:
@@ -93,7 +93,7 @@ def reset_filenames() -> None:
 
 def regenerate_thumbnails() -> None:
     for post in db.session.query(model.Post).all():
-        print("Generating tumbnail for post %d ..." % post.post_id, end="\r")
+        print("%d 번 포스트의 썸네일을 만들고 있습니다 ..." % post.post_id, end="\r")
         try:
             postfuncs.generate_post_thumbnail(post)
         except Exception:
