@@ -4,7 +4,7 @@
             <li class='names'>
                 <% if (ctx.canEditNames) { %>
                     <%= ctx.makeTextInput({
-                        text: 'Names',
+                        text: '제목',
                         value: ctx.pool.names.join(' '),
                         required: true,
                     }) %>
@@ -13,7 +13,7 @@
             <li class='category'>
                 <% if (ctx.canEditCategory) { %>
                     <%= ctx.makeSelect({
-                        text: 'Category',
+                        text: '카테고리',
                         keyValues: ctx.categories,
                         selectedKey: ctx.pool.category,
                         required: true,
@@ -23,7 +23,7 @@
             <li class='description'>
                 <% if (ctx.canEditDescription) { %>
                     <%= ctx.makeTextarea({
-                        text: 'Description',
+                        text: '설명',
                         value: ctx.pool.description,
                     }) %>
                 <% } %>
@@ -31,8 +31,8 @@
             <li class='posts'>
                 <% if (ctx.canEditPosts) { %>
                     <%= ctx.makeTextInput({
-                        text: 'Posts',
-                        placeholder: 'space-separated post IDs',
+                        text: '포스트',
+                        placeholder: '띄어쓰기로 포스트 ID 구분',
                         value: ctx.pool.posts.map(post => post.id).join(' ')
                     }) %>
                 <% } %>
@@ -43,7 +43,7 @@
             <div class='messages'></div>
 
             <div class='buttons'>
-                <input type='submit' class='save' value='Save changes'>
+                <input type='submit' class='save' value='변경사항 저장'>
             </div>
         <% } %>
     </form>
