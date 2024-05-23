@@ -45,7 +45,7 @@ class TagView extends events.EventTarget {
             if (!this._ctx.canEditAnything) {
                 this._view = new EmptyView();
                 this._view.showError(
-                    "You don't have privileges to edit tags."
+                    "태그를 수정할 수 있는 권한이 없습니다."
                 );
             } else {
                 this._view = new TagEditView(ctx);
@@ -55,7 +55,7 @@ class TagView extends events.EventTarget {
             if (!this._ctx.canMerge) {
                 this._view = new EmptyView();
                 this._view.showError(
-                    "You don't have privileges to merge tags."
+                    "태그를 병합할 수 있는 권한이 없습니다."
                 );
             } else {
                 this._view = new TagMergeView(ctx);
@@ -65,7 +65,7 @@ class TagView extends events.EventTarget {
             if (!this._ctx.canDelete) {
                 this._view = new EmptyView();
                 this._view.showError(
-                    "You don't have privileges to delete tags."
+                    "태그를 삭제할 수 있는 권한이 없습니다."
                 );
             } else {
                 this._view = new TagDeleteView(ctx);
