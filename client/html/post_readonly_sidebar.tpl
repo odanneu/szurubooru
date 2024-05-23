@@ -39,11 +39,12 @@
         <% } %>
 
         <section class='zoom'>
-            <a href class='fit-original'>Original zoom</a> &middot;
-            <a href class='fit-width'>fit width</a> &middot;
-            <a href class='fit-height'>height</a> &middot;
-            <a href class='fit-both'>both</a>
+            <a href class='fit-original'>원본</a> &middot;
+            <a href class='fit-width'>너비 맞춤</a> &middot;
+            <a href class='fit-height'>높이 맞춤</a> &middot;
+            <a href class='fit-both'>적절히</a>
         </section>
+
 
         <% if (ctx.post.source) { %>
             <section class='source'>
@@ -57,8 +58,8 @@
         <section class='search'>
             Search on
             <a href='http://iqdb.org/?url=<%- encodeURIComponent(ctx.post.fullContentUrl) %>'>IQDB</a> &middot;
-            <a href='https://danbooru.donmai.us/posts?tags=md5:<%- ctx.post.checksumMD5 %>'>Danbooru</a> &middot;
-            <a href='https://www.google.com/searchbyimage?&image_url=<%- encodeURIComponent(ctx.post.fullContentUrl) %>'>Google Images</a>
+            <a href='https://danbooru.donmai.us/posts?tags=md5:<%- ctx.post.checksumMD5 %>'>단부루</a> &middot;
+            <a href='https://www.google.com/searchbyimage?&image_url=<%- encodeURIComponent(ctx.post.fullContentUrl) %>'>구글 이미지 검색</a>
         </section>
 
         <section class='social'>
@@ -70,7 +71,7 @@
 
     <% if (ctx.post.relations.length) { %>
         <nav class='relations'>
-            <h1>Relations (<%- ctx.post.relations.length %>)</h1>
+            <h1>관련 짤 (<%- ctx.post.relations.length %>)</h1>
             <ul><!--
                 --><% for (let post of ctx.post.relations) { %><!--
                     --><li><!--
@@ -84,7 +85,7 @@
     <% } %>
 
     <nav class='tags'>
-        <h1>Tags (<%- ctx.post.tags.length %>)</h1>
+        <h1>태그 (<%- ctx.post.tags.length %>)</h1>
         <% if (ctx.post.tags.length) { %>
             <ul class='compact-tags'><!--
                 --><% for (let tag of ctx.post.tags) { %><!--
@@ -109,9 +110,9 @@
             --></ul>
         <% } else { %>
             <p>
-                No tags yet!
+                태그가 없음!
                 <% if (ctx.canEditPosts) { %>
-                    <a href='<%= ctx.getPostEditUrl(ctx.post.id, ctx.parameters) %>'>Add some.</a>
+                    <a href='<%= ctx.getPostEditUrl(ctx.post.id, ctx.parameters) %>'>추가하기.</a>
                 <% } %>
             </p>
         <% } %>
