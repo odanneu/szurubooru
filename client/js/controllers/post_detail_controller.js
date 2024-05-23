@@ -79,7 +79,7 @@ class PostDetailController extends BasePostController {
             .then(
                 () => {
                     this._installView(e.detail.post, "merge");
-                    this._view.showSuccess("Post merged.");
+                    this._view.showSuccess("짤 병합됨.");
                     router.replace(
                         uri.formatClientLink(
                             "post",
