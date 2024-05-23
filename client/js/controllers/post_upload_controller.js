@@ -12,8 +12,8 @@ const PostUploadView = require("../views/post_upload_view.js");
 const EmptyView = require("../views/empty_view.js");
 
 const genericErrorMessage =
-    "One or more posts needs your attention; " +
-    'click "resume upload" when you\'re ready.';
+    "확인이 필요한 짤이 있습니다. " +
+    '확인이 완료되면 "업로드 계속"을 클릭해주세요.';
 
 class PostUploadController {
     constructor() {
@@ -21,7 +21,7 @@ class PostUploadController {
 
         if (!api.hasPrivilege("posts:create")) {
             this._view = new EmptyView();
-            this._view.showError("You don't have privileges to upload posts.");
+            this._view.showError("짤을 업로드할 수 있는 권한이 없습니다.");
             return;
         }
 
@@ -107,7 +107,7 @@ class PostUploadController {
                     this._view.clearMessages();
                     misc.disableExitConfirmation();
                     const ctx = router.show(uri.formatClientLink("posts"));
-                    ctx.controller.showSuccess("Posts uploaded.");
+                    ctx.controller.showSuccess("짤 업로드됨.");
                 },
                 (error) => {
                     this._view.showError(genericErrorMessage);
@@ -136,7 +136,7 @@ class PostUploadController {
                             return Promise.resolve();
                         } else {
                             let error = new Error(
-                                "Post already uploaded " +
+                                "이미 업로드된 짤 " +
                                     `(@${searchResult.exactPost.id})`
                             );
                             error.uploadable = uploadable;
@@ -150,8 +150,8 @@ class PostUploadController {
                         !alwaysUploadSimilar
                     ) {
                         let error = new Error(
-                            `Found ${searchResult.similarPosts.length} similar ` +
-                                "posts.\nYou can resume or discard this upload."
+                            `비슷한 ${searchResult.similarPosts.length}개의 짤이 있습니다. ` +
+                                "\n업로드를 계속하거나 취소할 수 있습니다."
                         );
                         error.uploadable = uploadable;
                         error.similarPosts = searchResult.similarPosts;
