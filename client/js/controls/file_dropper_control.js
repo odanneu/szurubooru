@@ -121,10 +121,10 @@ class FileDropperControl extends events.EventTarget {
         e.preventDefault();
         this._dropperNode.classList.remove("active");
         if (!e.dataTransfer.files.length) {
-            window.alert("Only files are supported.");
+            window.alert("파일만 업로드할 수 있습니다.");
         }
         if (!this._options.allowMultiple && e.dataTransfer.files.length > 1) {
-            window.alert("Cannot select multiple files.");
+            window.alert("여러 개의 파일을 업로드할 수 없습니다.");
         }
         this._emitFiles(e.dataTransfer.files);
     }
