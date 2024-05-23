@@ -319,7 +319,7 @@ class Post extends events.EventTarget {
                         error.response &&
                         error.response.name === "PostAlreadyUploadedError"
                     ) {
-                        error.message = `Post already uploaded (@${error.response.otherPostId})`;
+                        error.message = `이미 업로드된 짤 (@${error.response.otherPostId})`;
                     }
                     return Promise.reject(error);
                 }
