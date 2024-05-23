@@ -25,7 +25,7 @@ class PoolListController {
 
         if (!api.hasPrivilege("pools:list")) {
             this._view = new EmptyView();
-            this._view.showError("You don't have privileges to view pools.");
+            this._view.showError("풀을 볼 권한이 없습니다.");
             return;
         }
 
