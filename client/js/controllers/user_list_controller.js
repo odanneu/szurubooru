@@ -16,12 +16,12 @@ class UserListController {
 
         if (!api.hasPrivilege("users:list")) {
             this._view = new EmptyView();
-            this._view.showError("You don't have privileges to view users.");
+            this._view.showError("사용자를 볼 수 있는 권한이 없습니다.");
             return;
         }
 
         topNavigation.activate("users");
-        topNavigation.setTitle("Listing users");
+        topNavigation.setTitle("사용자 목록");
 
         this._ctx = ctx;
 
