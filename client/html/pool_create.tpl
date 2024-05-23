@@ -3,14 +3,14 @@
         <ul class='input'>
             <li class='names'>
                 <%= ctx.makeTextInput({
-                    text: 'Names',
+                    text: '제목',
                     value: '',
                     required: true,
                 }) %>
             </li>
             <li class='category'>
                 <%= ctx.makeSelect({
-                    text: 'Category',
+                    text: '카테고리',
                     keyValues: ctx.categories,
                     selectedKey: 'default',
                     required: true,
@@ -18,15 +18,15 @@
             </li>
             <li class='description'>
                 <%= ctx.makeTextarea({
-                    text: 'Description',
+                    text: '설명',
                     value: '',
                 }) %>
             </li>
             <li class='posts'>
                 <%= ctx.makeTextInput({
-                    text: 'Posts',
+                    text: '포스트',
                     value: '',
-                    placeholder: 'space-separated post IDs',
+                    placeholder: '띄어쓰기로 포스트 ID 구분',
                 }) %>
             </li>
         </ul>
