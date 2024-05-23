@@ -19,7 +19,7 @@ class UserController {
             !api.isLoggedIn({ name: userName })
         ) {
             this._view = new EmptyView();
-            this._view.showError("You don't have privileges to view users.");
+            this._view.showError("사용자를 볼 수 있는 권한이 없습니다.");
             return;
         }
 
@@ -209,7 +209,7 @@ class UserController {
             })
             .then(
                 () => {
-                    this._view.showSuccess("Settings updated.");
+                    this._view.showSuccess("설정 갱신됨.");
                     this._view.enableForm();
                 },
                 (error) => {
@@ -231,10 +231,10 @@ class UserController {
                 }
                 if (api.hasPrivilege("users:list")) {
                     const ctx = router.show(uri.formatClientLink("users"));
-                    ctx.controller.showSuccess("Account deleted.");
+                    ctx.controller.showSuccess("사용자 삭제됨.");
                 } else {
                     const ctx = router.show(uri.formatClientLink());
-                    ctx.controller.showSuccess("Account deleted.");
+                    ctx.controller.showSuccess("사용자 삭제됨.");
                 }
             },
             (error) => {
@@ -261,7 +261,7 @@ class UserController {
                     )
                 );
                 ctx.controller.showSuccess(
-                    "Token " + response.token + " created."
+                    "토큰 " + response.token + " 생성됨."
                 );
             },
             (error) => {
@@ -287,7 +287,7 @@ class UserController {
                         )
                     );
                     ctx.controller.showSuccess(
-                        "Token " + e.detail.userToken.token + " deleted."
+                        "토큰 " + e.detail.userToken.token + " 삭제됨."
                     );
                 },
                 (error) => {
@@ -316,7 +316,7 @@ class UserController {
                     )
                 );
                 ctx.controller.showSuccess(
-                    "Token " + response.token + " updated."
+                    "토큰 " + response.token + " 갱신됨."
                 );
             },
             (error) => {
