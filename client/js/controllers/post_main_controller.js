@@ -135,7 +135,7 @@ class PostMainController extends BasePostController {
         this._view.sidebarControl.clearMessages();
         e.detail.post.feature().then(
             () => {
-                this._view.sidebarControl.showSuccess("Post featured.");
+                this._view.sidebarControl.showSuccess("짤이 대문으로 설정됨.");
                 this._view.sidebarControl.enableForm();
             },
             (error) => {
@@ -156,7 +156,7 @@ class PostMainController extends BasePostController {
             () => {
                 misc.disableExitConfirmation();
                 const ctx = router.show(uri.formatClientLink("posts"));
-                ctx.controller.showSuccess("Post deleted.");
+                ctx.controller.showSuccess("짤 삭제됨.");
             },
             (error) => {
                 this._view.sidebarControl.showError(error.message);
@@ -189,7 +189,7 @@ class PostMainController extends BasePostController {
         }
         post.save().then(
             () => {
-                this._view.sidebarControl.showSuccess("Post saved.");
+                this._view.sidebarControl.showSuccess("짤 저장됨.");
                 this._view.sidebarControl.enableForm();
                 misc.disableExitConfirmation();
             },
