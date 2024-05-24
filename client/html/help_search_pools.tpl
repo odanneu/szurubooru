@@ -16,7 +16,7 @@
         </tr>
         <tr>
             <td><code>creation-date</code></td>
-            <td해당 날짜에 생성됨</td>
+            <td>해당 날짜에 생성됨</td>
         </tr>
         <tr>
             <td><code>creation-time</code></td>
