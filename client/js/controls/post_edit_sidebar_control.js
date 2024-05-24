@@ -112,7 +112,7 @@ class PostEditSidebarControl extends events.EventTarget {
                 {
                     allowUrls: true,
                     lock: true,
-                    urlPlaceholder: "...또는 URL을 여기에 붙여넣기.",
+                    urlPlaceholder: "...또는 URL을 여기에 붙여넣기",
                 }
             );
             this._contentFileDropper.addEventListener("fileadd", (e) => {
@@ -266,7 +266,7 @@ class PostEditSidebarControl extends events.EventTarget {
 
     _evtFeatureClick(e) {
         e.preventDefault();
-        if (confirm(정말로 이 짤을 대문짤로 지정하시겠습니까?")) {
+        if (confirm("정말로 이 짤을 대문짤로 지정하시겠습니까?")) {
             this.dispatchEvent(
                 new CustomEvent("feature", {
                     detail: {
